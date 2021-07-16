@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 16.07.2021.
 
-* TODO: Describe initial release.
+* initial release.
