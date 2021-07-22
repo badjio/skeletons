@@ -6,3 +6,7 @@
 
 * update SkeletonAvatar.
 * add complex Cards example.
+
+## [0.0.3] - 16.07.2021.
+
+* update README.
