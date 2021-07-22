@@ -1,6 +1,6 @@
 name: skeletons
 description: A Flutter package for building custom skeleton widgets to mimic the page's layout while loading.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/badjio/skeletons/
 
 environment:
