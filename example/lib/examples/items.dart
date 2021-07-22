@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skeletons/skeletons.dart';
 
-class Example1Page extends StatelessWidget {
-  const Example1Page({Key? key}) : super(key: key);
+class ItemsExamplePage extends StatelessWidget {
+  const ItemsExamplePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

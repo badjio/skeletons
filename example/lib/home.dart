@@ -1,5 +1,6 @@
 import 'package:example/examples/custom_shimmer_gradient.dart';
 import 'package:example/examples/items.dart';
+import 'package:example/examples/list_view_cards.dart';
 import 'package:example/examples/list_view_custom.dart';
 import 'package:example/examples/rtl.dart';
 import 'package:example/examples/theme_modes.dart';
@@ -23,8 +24,8 @@ class HomePage extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           children: [
             TextButton(
-              onPressed: () => Navigator.of(context).push(
-                  (MaterialPageRoute(builder: (context) => Example1Page()))),
+              onPressed: () => Navigator.of(context).push((MaterialPageRoute(
+                  builder: (context) => ItemsExamplePage()))),
               child: Text(
                 "Items",
                 style: TextStyle(fontSize: 20),
@@ -44,7 +45,16 @@ class HomePage extends StatelessWidget {
               onPressed: () => Navigator.of(context).push((MaterialPageRoute(
                   builder: (context) => ListViewExample2Page()))),
               child: Text(
-                "List View (Custom)",
+                "List View (Custom List Tiles)",
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Divider(),
+            TextButton(
+              onPressed: () => Navigator.of(context).push((MaterialPageRoute(
+                  builder: (context) => ListviewCardsExamplePage()))),
+              child: Text(
+                "List View (Cards)",
                 style: TextStyle(fontSize: 20),
               ),
             ),
