@@ -33,15 +33,33 @@ class SkeletonAvatar extends StatelessWidget {
     return SkeletonItem(
       child: Padding(
         padding: style.padding,
-        child: Container(
-          width: style.width,
-          height: style.height,
-          decoration: BoxDecoration(
-            color: Theme.of(context).backgroundColor,
-            shape: style.shape,
-            borderRadius:
-                style.shape != BoxShape.circle ? style.borderRadius : null,
-          ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Container(
+              width: ((style.randomWidth != null && style.randomWidth!) ||
+                      (style.randomWidth == null &&
+                          (style.minWidth != null && style.maxWidth != null)))
+                  ? doubleInRange(
+                      style.minWidth ??
+                          ((style.maxWidth ?? constraints.maxWidth) / 3),
+                      style.maxWidth ?? constraints.maxWidth)
+                  : style.width,
+              height: ((style.randomHeight != null && style.randomHeight!) ||
+                      (style.randomHeight == null &&
+                          (style.minHeight != null && style.maxHeight != null)))
+                  ? doubleInRange(
+                      style.minHeight ??
+                          ((style.maxHeight ?? constraints.maxHeight) / 3),
+                      style.maxHeight ?? constraints.maxHeight)
+                  : style.height,
+              decoration: BoxDecoration(
+                color: Theme.of(context).backgroundColor,
+                shape: style.shape,
+                borderRadius:
+                    style.shape != BoxShape.circle ? style.borderRadius : null,
+              ),
+            );
+          },
         ),
       ),
     );
@@ -55,7 +73,6 @@ class SkeletonLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    assert(true);
     return SkeletonItem(
       child: Align(
         alignment: style.alignment,

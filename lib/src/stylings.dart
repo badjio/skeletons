@@ -44,6 +44,12 @@ class SkeletonAvatarStyle {
   final double? width;
   final double? height;
   final EdgeInsetsGeometry padding;
+  final bool? randomWidth;
+  final double? minWidth;
+  final double? maxWidth;
+  final bool? randomHeight;
+  final double? minHeight;
+  final double? maxHeight;
   final BoxShape shape;
   final BorderRadiusGeometry? borderRadius;
 
@@ -51,9 +57,22 @@ class SkeletonAvatarStyle {
     this.width = 48,
     this.height = 48,
     this.padding = const EdgeInsets.all(0),
+    this.randomWidth,
+    this.minWidth,
+    this.maxWidth,
+    this.randomHeight,
+    this.minHeight,
+    this.maxHeight,
     this.shape = BoxShape.rectangle,
     this.borderRadius = const BorderRadius.all(Radius.circular(4)),
-  });
+  })  : assert(minWidth == null ||
+            (minWidth > 0 && (maxWidth == null || maxWidth > minWidth))),
+        assert(maxWidth == null ||
+            (maxWidth > 0 && (minWidth == null || minWidth < maxWidth))),
+        assert(minHeight == null ||
+            (minHeight > 0 && (maxHeight == null || maxHeight > minHeight))),
+        assert(maxHeight == null ||
+            (maxHeight > 0 && (minHeight == null || minHeight < maxHeight)));
 }
 
 class SkeletonLineStyle {
@@ -67,13 +86,13 @@ class SkeletonLineStyle {
   final BorderRadiusGeometry? borderRadius;
 
   const SkeletonLineStyle(
-      {this.width,
+      {this.width = double.infinity,
       this.height = 18,
       this.padding = const EdgeInsets.all(0),
       this.randomLength,
-      this.borderRadius = const BorderRadius.all(Radius.circular(2)),
       this.minLength,
       this.maxLength,
+      this.borderRadius = const BorderRadius.all(Radius.circular(2)),
       this.alignment = AlignmentDirectional.centerStart})
       : assert(minLength == null ||
             (minLength > 0 && (maxLength == null || maxLength > minLength))),
