@@ -222,6 +222,7 @@ class SkeletonListView extends StatelessWidget {
   final bool scrollable;
   final EdgeInsets? padding;
   final double? spacing;
+  final bool shrinkWrap;
 
   SkeletonListView({
     Key? key,
@@ -231,6 +232,7 @@ class SkeletonListView extends StatelessWidget {
     this.scrollable = false,
     this.padding = const EdgeInsets.symmetric(horizontal: 16),
     this.spacing = 8,
+    this.shrinkWrap = false,
   }) : super(key: key);
 
   @override
@@ -239,6 +241,7 @@ class SkeletonListView extends StatelessWidget {
       child: ListView.builder(
         padding: padding,
         physics: scrollable ? null : NeverScrollableScrollPhysics(),
+        shrinkWrap: shrinkWrap,
         itemCount: itemCount,
         itemBuilder: itemBuilder ??
             (context, index) =>
