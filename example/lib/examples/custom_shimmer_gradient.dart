@@ -115,7 +115,7 @@ class _CustomShimmerGradientExamplePageState
                     randomText(),
                     style: Theme.of(context)
                         .textTheme
-                        .headline6!
+                        .headlineSmall!
                         .copyWith(fontSize: 16),
                     maxLines: 1,
                   ),
