@@ -1,5 +1,7 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
+
 import 'shimmer.dart';
 import 'stylings.dart';
 
@@ -25,8 +27,7 @@ class SkeletonItem extends StatelessWidget {
 
 class SkeletonAvatar extends StatelessWidget {
   final SkeletonAvatarStyle style;
-  const SkeletonAvatar({Key? key, this.style = const SkeletonAvatarStyle()})
-      : super(key: key);
+  const SkeletonAvatar({Key? key, this.style = const SkeletonAvatarStyle()}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,24 +40,20 @@ class SkeletonAvatar extends StatelessWidget {
               width: ((style.randomWidth != null && style.randomWidth!) ||
                       (style.randomWidth == null &&
                           (style.minWidth != null && style.maxWidth != null)))
-                  ? doubleInRange(
-                      style.minWidth ??
-                          ((style.maxWidth ?? constraints.maxWidth) / 3),
+                  ? doubleInRange(style.minWidth ?? ((style.maxWidth ?? constraints.maxWidth) / 3),
                       style.maxWidth ?? constraints.maxWidth)
                   : style.width,
               height: ((style.randomHeight != null && style.randomHeight!) ||
                       (style.randomHeight == null &&
                           (style.minHeight != null && style.maxHeight != null)))
                   ? doubleInRange(
-                      style.minHeight ??
-                          ((style.maxHeight ?? constraints.maxHeight) / 3),
+                      style.minHeight ?? ((style.maxHeight ?? constraints.maxHeight) / 3),
                       style.maxHeight ?? constraints.maxHeight)
                   : style.height,
               decoration: BoxDecoration(
-                color: Theme.of(context).backgroundColor,
+                color: Theme.of(context).colorScheme.background,
                 shape: style.shape,
-                borderRadius:
-                    style.shape != BoxShape.circle ? style.borderRadius : null,
+                borderRadius: style.shape != BoxShape.circle ? style.borderRadius : null,
               ),
             );
           },
@@ -68,8 +65,7 @@ class SkeletonAvatar extends StatelessWidget {
 
 class SkeletonLine extends StatelessWidget {
   final SkeletonLineStyle style;
-  const SkeletonLine({Key? key, this.style = const SkeletonLineStyle()})
-      : super(key: key);
+  const SkeletonLine({Key? key, this.style = const SkeletonLineStyle()}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -88,16 +84,14 @@ class SkeletonLine extends StatelessWidget {
                 return Container(
                   width: ((style.randomLength != null && style.randomLength!) ||
                           (style.randomLength == null &&
-                              (style.minLength != null &&
-                                  style.maxLength != null)))
+                              (style.minLength != null && style.maxLength != null)))
                       ? doubleInRange(
-                          style.minLength ??
-                              ((style.maxLength ?? constraints.maxWidth) / 3),
+                          style.minLength ?? ((style.maxLength ?? constraints.maxWidth) / 3),
                           style.maxLength ?? constraints.maxWidth)
                       : style.width,
                   height: style.height,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     borderRadius: style.borderRadius,
                   ),
                 );
@@ -251,5 +245,4 @@ class SkeletonListView extends StatelessWidget {
   }
 }
 
-double doubleInRange(num start, num end) =>
-    Random().nextDouble() * (end - start) + start;
+double doubleInRange(num start, num end) => Random().nextDouble() * (end - start) + start;
