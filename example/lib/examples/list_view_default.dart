@@ -56,7 +56,7 @@ class _ListViewExample1PageState extends State<ListViewExample1Page> {
                 children: [
                   Text(
                     "Lorem ipsum dolor sit amet.",
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headlineSmall,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),

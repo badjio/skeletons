@@ -99,7 +99,7 @@ class _RtlExamplePageState extends State<RtlExamplePage> {
                     randomText(),
                     style: Theme.of(context)
                         .textTheme
-                        .headline6!
+                        .headlineSmall!
                         .copyWith(fontSize: 16, fontWeight: FontWeight.w600),
                     maxLines: 1,
                   ),

@@ -96,7 +96,7 @@ class _ListViewExample2PageState extends State<ListViewExample2Page> {
                     randomText(),
                     style: Theme.of(context)
                         .textTheme
-                        .headline6!
+                        .headlineSmall!
                         .copyWith(fontSize: 16),
                     maxLines: 1,
                   ),
