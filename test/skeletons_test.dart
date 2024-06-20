@@ -64,7 +64,7 @@ void main() {
   });
 
   testWidgets('test skeleton listview widget', (WidgetTester tester) async {
-    tester.binding.window.physicalSizeTestValue = Size(1080, 2160);
+    tester.view.physicalSize = Size(1080, 2160);
     await tester.pumpWidget(SkeletonTestWidget(
       isLoading: true,
       skeleton: SkeletonListView(

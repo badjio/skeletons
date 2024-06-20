@@ -10,3 +10,7 @@
 ## [0.0.3] - 16.07.2021.
 
 * update README.
+
+## [0.0.4] - 19.06.2024.
+
+* Update package for compatibility with latest Flutter version (3.22.0).
